@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskDto {
-    @JsonProperty
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotBlank(message = "Title cannot be empty")
@@ -31,14 +31,13 @@ public class TaskDto {
     @JsonProperty
     private String dueDate;
 
-    @JsonProperty
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String dateCreated;
 
-    @JsonProperty
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String dateModified;
 
-    @NotNull(message = "cannot be null")
-    @JsonProperty
-    private Boolean isDelete;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private Boolean isDelete = false;
 
 }

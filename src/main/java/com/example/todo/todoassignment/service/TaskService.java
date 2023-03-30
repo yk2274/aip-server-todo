@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,8 +42,8 @@ public class TaskService {
     public Task checkTask(TaskDto taskDto) {
         Task task = dtoToEntity(taskDto);
         Long taskId = task.getId();
-        Task existingTask = taskRepository.findById(taskId)
-                .orElseThrow(() -> new IllegalArgumentException("Task Id:" + taskId + " doesn't exist"));
+        Task existingTask = taskRepository.findById(taskId).orElseThrow(() ->
+                new IllegalArgumentException("Task Id:" + taskId + " doesn't exist"));
         return existingTask;
     }
 
@@ -57,8 +58,9 @@ public class TaskService {
         return entityToDto(taskRepository.save(taskEntity));
     }
 
-    public TaskDto updateTask(TaskDto taskDto) {
-        Task existingTask = checkTask(taskDto);
+    public TaskDto updateTask(TaskDto taskDto, Long taskId) {
+        Task existingTask = taskRepository.findById(taskId).orElseThrow(() ->
+                new IllegalArgumentException("Task Id:" + taskId + " doesn't exist"));
         existingTask.setTitle(taskDto.getTitle());
         existingTask.setCategory(taskDto.getCategory());
         existingTask.setDescription(taskDto.getDescription());

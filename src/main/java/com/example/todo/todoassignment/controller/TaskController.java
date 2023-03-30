@@ -28,8 +28,9 @@ public class TaskController {
     }
 
     @PutMapping
-    public TaskDto updateTask(@Valid @RequestBody TaskDto task) {
-        return taskService.updateTask(task);
+    public TaskDto updateTask(@Valid @RequestBody TaskDto task,
+                              @RequestParam("taskId") Long taskId) {
+        return taskService.updateTask(task, taskId);
     }
 
     @DeleteMapping
