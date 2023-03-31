@@ -37,11 +37,13 @@ public class Task {
     private LocalDate dueDate;
 
     @CreationTimestamp
+    @Column
     private LocalDate dateCreated;
 
     @UpdateTimestamp
+    @Column
     private LocalDate dateModified;
 
-    @NotNull
+    @Column(nullable = false)
     private Boolean isDelete = false;
 }
