@@ -41,7 +41,16 @@ public class AppConfig {
                           .dueDate(LocalDate.now().plus(Period.ofDays(1)))
                           .dateCreated(LocalDate.now())
                           .dateModified(LocalDate.now())
-                          .isDelete(false)
+                          .isDelete(true)
+                          .build(),
+                  Task.builder()
+                          .title("Test task 4")
+                          .category("Testing")
+                          .description("Echo bravo charlies")
+                          .dueDate(LocalDate.now().plus(Period.ofDays(1)))
+                          .dateCreated(LocalDate.now())
+                          .dateModified(LocalDate.now())
+                          .isDelete(true)
                           .build()
           );
 

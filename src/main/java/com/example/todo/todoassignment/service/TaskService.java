@@ -10,7 +10,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,9 +38,7 @@ public class TaskService {
         return modelMapper.map(task, TaskDto.class);
     }
 
-    public Task checkTask(TaskDto taskDto) {
-        Task task = dtoToEntity(taskDto);
-        Long taskId = task.getId();
+    public Task checkTask(Long taskId) {
         Task existingTask = taskRepository.findById(taskId).orElseThrow(() ->
                 new IllegalArgumentException("Task Id:" + taskId + " doesn't exist"));
         return existingTask;
@@ -49,6 +46,7 @@ public class TaskService {
 
     public List<TaskDto> getTasks() {
         return taskRepository.findAll().stream()
+                .filter(task -> task.getIsDelete() == false)
                 .map(this::entityToDto)
                 .collect(Collectors.toList());
     }
@@ -59,8 +57,7 @@ public class TaskService {
     }
 
     public TaskDto updateTask(TaskDto taskDto, Long taskId) {
-        Task existingTask = taskRepository.findById(taskId).orElseThrow(() ->
-                new IllegalArgumentException("Task Id:" + taskId + " doesn't exist"));
+        Task existingTask = checkTask(taskId);
         existingTask.setTitle(taskDto.getTitle());
         existingTask.setCategory(taskDto.getCategory());
         existingTask.setDescription(taskDto.getDescription());
@@ -69,8 +66,8 @@ public class TaskService {
         return entityToDto(taskRepository.save(existingTask));
     }
 
-    public TaskDto deleteTask(TaskDto taskDto) {
-        Task existingTask = checkTask(taskDto);
+    public TaskDto deleteTask(Long taskId) {
+        Task existingTask = checkTask(taskId);
         existingTask.setIsDelete(Boolean.TRUE);
         return entityToDto(taskRepository.save(existingTask));
     }

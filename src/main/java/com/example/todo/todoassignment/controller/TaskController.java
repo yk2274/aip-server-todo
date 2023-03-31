@@ -34,8 +34,8 @@ public class TaskController {
     }
 
     @DeleteMapping
-    public TaskDto deleteTask(@Valid @RequestBody TaskDto task) {
-        return taskService.deleteTask(task);
+    public TaskDto deleteTask(@RequestParam("taskId") Long taskId) {
+        return taskService.deleteTask(taskId);
     }
 
 }
