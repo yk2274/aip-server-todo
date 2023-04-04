@@ -13,7 +13,6 @@ import java.util.List;
 @RequestMapping(path = "api/tasks")
 @Data
 @AllArgsConstructor
-@CrossOrigin("*")
 public class TaskController {
     private final TaskService taskService;
 
