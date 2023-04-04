@@ -53,8 +53,8 @@ public class AppConfig {
                           .isDelete(true)
                           .build()
           );
-
           taskRepository.saveAll(tasks);
+
         };
     }
 }
