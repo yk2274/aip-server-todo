@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/tasks")
+@RequestMapping(path = "tasks")
 @Data
 @AllArgsConstructor
 public class TaskController {

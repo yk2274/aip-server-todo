@@ -1,7 +1,7 @@
-package com.example.todo.todoassignment.security.SecurityService;
+package com.example.todo.todoassignment.security.Service;
 
-import com.example.todo.todoassignment.security.SecurityEntity.AuthenticationRequest;
-import com.example.todo.todoassignment.security.SecurityEntity.AuthenticationResponse;
+import com.example.todo.todoassignment.security.Entity.AuthenticationRequest;
+import com.example.todo.todoassignment.security.Entity.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

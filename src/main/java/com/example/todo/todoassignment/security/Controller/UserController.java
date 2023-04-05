@@ -1,8 +1,8 @@
-package com.example.todo.todoassignment.security.SecurityController;
+package com.example.todo.todoassignment.security.Controller;
 
-import com.example.todo.todoassignment.security.SecurityEntity.AuthenticationRequest;
-import com.example.todo.todoassignment.security.SecurityEntity.AuthenticationResponse;
-import com.example.todo.todoassignment.security.SecurityService.AuthService;
+import com.example.todo.todoassignment.security.Entity.AuthenticationRequest;
+import com.example.todo.todoassignment.security.Entity.AuthenticationResponse;
+import com.example.todo.todoassignment.security.Service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
