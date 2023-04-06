@@ -1,7 +1,6 @@
-package com.example.todo.todoassignment.security.SecurityConfig;
+package com.example.todo.todoassignment.security.Configuration;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -12,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-@Configuration
+@org.springframework.context.annotation.Configuration
 public class Config {
     @Bean
     public UserDetailsService userDetailsService() {
@@ -24,7 +23,7 @@ public class Config {
                 .build());
         manager.createUser(User.withUsername("admin")
                 .password(bCryptPasswordEncoder.encode("adminPass"))
-                .roles("USER", "ADMIN")
+                .roles("ADMIN")
                 .build());
         return manager;
     }

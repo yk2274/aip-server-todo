@@ -11,7 +11,7 @@ import java.time.Period;
 import java.util.List;
 
 @Configuration
-public class AppConfig {
+public class Seeder {
     @Bean
     CommandLineRunner commandLineRunner(TaskRepository taskRepository) {
         return args -> {

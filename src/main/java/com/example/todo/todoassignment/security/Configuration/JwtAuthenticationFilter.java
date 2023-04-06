@@ -1,6 +1,6 @@
-package com.example.todo.todoassignment.security.SecurityConfig;
+package com.example.todo.todoassignment.security.Configuration;
 
-import com.example.todo.todoassignment.security.SecurityService.JwtService;
+import com.example.todo.todoassignment.security.Service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

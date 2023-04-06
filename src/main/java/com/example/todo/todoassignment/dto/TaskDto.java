@@ -36,7 +36,4 @@ public class TaskDto {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String dateModified;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    private Boolean isDelete = false;
-
 }
