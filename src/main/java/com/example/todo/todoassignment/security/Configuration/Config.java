@@ -23,7 +23,7 @@ public class Config {
                 .build());
         manager.createUser(User.withUsername("admin")
                 .password(bCryptPasswordEncoder.encode("adminPass"))
-                .roles("ADMIN")
+                .roles("USER","ADMIN")
                 .build());
         return manager;
     }
